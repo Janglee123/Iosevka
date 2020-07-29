@@ -1,7 +1,13 @@
 FROM ubuntu
 
-RUN apt-get update
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Moscow
+
+RUN apt-get clean && apt-get update
 RUN apt-get install -y build-essential curl
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN sudo apt-get install -y nodejs
 
 # ttfautohint
 RUN apt-get install -y ttfautohint
