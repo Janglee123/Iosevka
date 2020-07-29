@@ -1,10 +1,10 @@
 FROM ubuntu
 
-RUN apt-get update
+RUN apt-get clean && apt-get update
 RUN apt-get install -y build-essential curl
 
 # NodeJS >= 6.0
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 RUN apt-get install -y nodejs
 
 # ttfautohint
